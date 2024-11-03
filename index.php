@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UMKM Wisata - Paket Wisata</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <!-- Halaman Beranda -->
     <header>
       <h1>Wisata Situ Cipanten</h1>
-      <nav>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu()">&#9776;</button>
+      <nav id="nav-menu" aria-hidden="true">
         <ul>
           <li><a href="#home">Beranda</a></li>
           <li><a href="#paket-wisata">Paket Wisata</a></li>
@@ -28,14 +28,14 @@
     <section id="paket-wisata">
       <h2>Penginapan Cipanten</h2>
       <div class="paket">
-        <img src="gambarpenginapan.jpeg" alt="Gambar Paket 1" />
-        <h3>Paket Penginapan Cipanten 1</h3>
+        <img src="gambarpenginapan.jpeg" alt="Gambar Penginapan Cipanten" />
+        <h3>Paket Penginapan Cipanten</h3>
         <p>Jelajahi keindahan pantai dengan paket wisata spesial.</p>
         <a href="#pesan">Pesan Sekarang</a>
       </div>
       <div class="paket">
-        <img src="gambar-paket2.jpg" alt="Gambar Paket 2" />
-        <h3>Paket Wisata Gunung</h3>
+        <img src="gambar-paket2.jpg" alt="Gambar Wisata Cipanten" />
+        <h3>Wisata Cipanten</h3>
         <p>Nikmati suasana pegunungan dengan paket wisata eksklusif.</p>
         <a href="#pesan">Pesan Sekarang</a>
       </div>
@@ -91,6 +91,16 @@
           // Aksi untuk menghapus pesanan
           alert('Pesanan berhasil dihapus.');
         }
+      }
+
+      function toggleMenu() {
+        const navMenu = document.getElementById('nav-menu');
+        const hamburgerButton = document.querySelector('.hamburger');
+        const isExpanded = hamburgerButton.getAttribute('aria-expanded') === 'true';
+
+        navMenu.classList.toggle('show');
+        navMenu.setAttribute('aria-hidden', isExpanded);
+        hamburgerButton.setAttribute('aria-expanded', !isExpanded);
       }
     </script>
   </body>
